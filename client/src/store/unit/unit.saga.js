@@ -11,19 +11,18 @@ import {
 //  Api's section
 
 const getUnitsCall = (url) => {
+  const config = {
+    header: {
+      "Content-Type": "application/json",
+    },
+  };
 
-    const config = {
-      header: {
-        'Content-Type': 'application/json'
-      }
-    }
-
-  return axios.get(url,config);
+  return axios.get(url, config);
 };
 
 export function* getUnitsStart() {
   try {
-    let { data } = yield call(getUnitsCall, "http://192.168.0.111:5000/unit");
+    let { data } = yield call(getUnitsCall, "/unit");
     yield put(getUnits(data));
   } catch (error) {
     unitErrors(error);
@@ -31,12 +30,11 @@ export function* getUnitsStart() {
 }
 
 function uploadUnit(newUnit) {
-
-    const config = {
-      header: {
-        'Content-Type': 'application/json'
-      }
-    }
+  const config = {
+    header: {
+      "Content-Type": "application/json",
+    },
+  };
 
   try {
     return axios.request({
@@ -44,7 +42,8 @@ function uploadUnit(newUnit) {
       // url: "http://localhost:5000/unit",
       // url: "https://unitsmanagement.herokuapp.com/unit",
       url: "/unit",
-      data: newUnit,config
+      data: newUnit,
+      config,
     });
   } catch (error) {
     console.log(error);
@@ -89,19 +88,19 @@ export function* addNewUnit({
 }
 
 function deleteUnits(unitIds) {
-
-    const config = {
-      header: {
-        'Content-Type': 'application/json'
-      }
-    }
+  const config = {
+    header: {
+      "Content-Type": "application/json",
+    },
+  };
 
   return axios.request({
     method: "delete",
     // url: "http://localhost:5000/unit",
     // url: "https://unitsmanagement.herokuapp.com/unit",
     url: "/unit",
-    data: unitIds,config
+    data: unitIds,
+    config,
   });
 }
 
@@ -125,12 +124,11 @@ export function* deleteUnit({ payload }) {
 }
 
 function updateUnitCall(id, newUnit) {
-
-    const config = {
-      header: {
-        'Content-Type': 'application/json'
-      }
-    }
+  const config = {
+    header: {
+      "Content-Type": "application/json",
+    },
+  };
 
   try {
     return axios.request({
@@ -138,7 +136,8 @@ function updateUnitCall(id, newUnit) {
       // url: `http://localhost:5000/unit/${id}`,
       // url: `https://unitsmanagement.herokuapp.com/${id}`,
       url: `/unit/${id}`,
-      data: newUnit,config
+      data: newUnit,
+      config,
     });
   } catch (error) {
     console.log(error);

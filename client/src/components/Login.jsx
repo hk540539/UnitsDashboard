@@ -162,7 +162,7 @@ const Login = (props) => {
       <Grid item container direction="column" alignItems="center">
         <Grid item>
           <Typography variant="h4" color="secondary">
-            <span style={{ color: "#0B72B9" }}> Use:</span> guest@mail.com
+            <span style={{ color: "#0B72B9" }}> Use:</span> guest@email.com
           </Typography>
         </Grid>
         <Grid item style={{ marginTop: "1em" }}>
