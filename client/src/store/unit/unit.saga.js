@@ -145,7 +145,6 @@ function updateUnitCall(id, newUnit) {
 }
 
 export function* updateUnit({ payload: { id, filledProps } }) {
-  console.log(id, filledProps);
   try {
     yield call(updateUnitCall, id, filledProps[0]);
     yield put(loadingStart());
