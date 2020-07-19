@@ -4,7 +4,7 @@
   "description": "Vss Clients Manager",
   "main": "index.js",
   "engines": {
-    "node": "11.6.0","npm": "6.4.1" 
+    "node": "11.6.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
